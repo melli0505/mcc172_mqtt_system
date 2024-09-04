@@ -1,0 +1,14 @@
+[Unit]
+Description=Save Motor Vibration Data
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'python /home/raspberry/daqhats/examples/python/mcc172/scan_collect_data.py'
+WorkingDirectory=/home/raspberry/daqhats
+Restart=on-failure
+RestartSec=30s
+
+User=raspberry
+
+[Install]
+WantedBy=multi-user.target

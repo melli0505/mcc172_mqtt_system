@@ -1,0 +1,14 @@
+[Unit]
+Description=Send Motor Temperature
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'python /home/raspberry/daqhats/examples/python/mcc172/temperature/pt100.py'
+WorkingDirectory=/home/raspberry/daqhats
+Restart=on-failure
+RestartSec=20s
+
+User=raspberry
+
+[Install]
+WantedBy=multi-user.target
