@@ -32,8 +32,9 @@ try:
 	while True: 
 		end = time.time()
 		if end - start >= 60:
-			count = int(count / 2)
-			client.publish("motor_rpm", str(count))
+			delta = (end - start) / 60
+			count = int(count / delta / 2)
+			client.publish("motor_rpm", str(count)
 			count = 0
 			start = end
 except KeyboardInterrupt:
